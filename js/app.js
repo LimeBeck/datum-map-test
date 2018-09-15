@@ -132,6 +132,14 @@ var App = Marionette.Application.extend({
             attribution: 'LimeBeck was here',
             maxZoom: 19
         }).addTo(dstu_map);
+        var measureControl = new L.Control.Measure(
+            {
+                primaryLengthUnit: 'meters', secondaryLengthUnit: 'kilometers',
+                primaryAreaUnit: 'sqmeters', secondaryAreaUnit: undefined, position: "topleft",
+            }
+        );
+        measureControl.addTo(dstu_map);
+        L.control.mousePosition().addTo(dstu_map);
         window.map = dstu_map;
         var objlist = new ObjList();
         var objListView = new ObjListView({collection: objlist});
